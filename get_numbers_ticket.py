@@ -2,7 +2,7 @@ import random
 
 def get_numbers_ticket(min: int, max: int, quantity: int) -> list:
     if isinstance(min, int) and isinstance(max, int) and isinstance(quantity, int): # чи усі атрибути типу int
-        if min >= 1 and max <= 1000 and min < max: # чи задовольняють атрибути числовим обмеженням
+        if min >= 1 and max <= 1000 and min < max and quantity <= max - min + 1: # чи задовольняють атрибути числовим обмеженням
             numbers = [] 
             while quantity > 0:
                 number = random.randint(min, max) # генерується випадкове число у межах min і max
@@ -20,11 +20,11 @@ def get_numbers_ticket(min: int, max: int, quantity: int) -> list:
 # Ще варіант зробити список від min до max і використати random.sample(list, quantity): 
 # def get_numbers_ticket(min: int, max: int, quantity: int) -> list:
 #     if isinstance(min, int) and isinstance(max, int) and isinstance(quantity, int): # чи усі атрибути типу int
-#         if min >= 1 and max <= 1000 and min < max: # чи задовольняють атрибути числовим обмеженням
+#         if min >= 1 and max <= 1000 and min < max and quantity <= max - min + 1: # чи задовольняють атрибути числовим обмеженням
 #             numbers = [x for x in range(max+1)] # створюється список від min до max включно
 #             return sorted(random.sample(numbers, quantity)) # повертаємо відсортований список з отриманих чисел
 #         else:
 #             return []
 #     else:
 #         return []    
-# print(get_numbers_ticket(1, 49, 6))
+# print(get_numbers_ticket(10, 14, 5))
